@@ -1,0 +1,21 @@
+<br><br><br><br>
+<table>
+  <tr  ng-if="foundController.items.length > '0'">
+    <td style="border:solid 1px; " align="center">Item Name</td>
+    <td style="border:solid 1px;" align="center">Short Name</td>
+    <td style="border:solid 1px;" align="center">Description</td>
+    <td style="border:solid 1px; color:red" align="center">Remove</td>
+  </tr>
+
+
+  <tr  ng-repeat="item in foundController.items">
+    <td style="border:solid 1px;">{{ item.name }}</td>
+    <b><td style="border:solid 1px; font-weight: bold;" align="center">{{ item.short_name }}</td></b>
+    <td style="border:solid 1px;">{{ item.description }}</td>
+    <td>
+    <button ng-click="foundController.onRemove({index: $index});">Don't want this one!</button>
+    </td>
+  </tr>
+</table>
+<div ng-if="foundController.errorSearch()">Please enter desire input and click the "Narrow it down button".</div>
+  <div ng-if="foundController.emptySearch()">Nothing found.</div>
